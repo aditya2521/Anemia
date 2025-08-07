@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Anemia</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body, html {
+      height: 100%;
+    }
+    .predict-container {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-section {
+      background: rgba(22, 16, 63, 0.90);
+      padding: 44px 32px 36px 32px;
+      border-radius: 22px;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.17);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 510px;
+      max-width: 98vw;
+    }
+    .form-section h2 {
+      font-size: 2.1rem;
+      margin-bottom: 20px;
+      color: #fafafa;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 18px;
+      width: 100%;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-size: 1.08rem;
+      color: #fafafa;
+      margin-bottom: 6px;
+      font-weight: 500;
+      margin-top: 2px;
+      text-align: left;
+    }
+    .form-group input,
+    .form-group select {
+      font-size: 1.07rem;
+      padding: 11px 8px;
+      border-radius: 7px;
+      border: 1px solid #ccc;
+      background: #f6f8fa;
+      color: #222;
+    }
+
+    /* Make submit button centered across both columns */
+    .form-actions {
+      grid-column: span 2;
+      display: flex;
+      justify-content: center;
+      margin-top: 14px;
+    }
+    .form-section input[type="submit"] {
+      background: #e82424;
+      color: #fff;
+      font-size: 1.13rem;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 48px;
+      cursor: pointer;
+      transition: background 0.22s;
+      font-weight: 600;
+    }
+    .form-section input[type="submit"]:hover {
+      background: #b71c1c;
+    }
+    .result-section {
+      margin-top: 32px;
+      background: #fff;
+      color: #e82424;
+      padding: 13px 16px;
+      border-radius: 10px;
+      font-size: 1.08rem;
+      text-align: center;
+      width: 95%;
+    }
+    @media (max-width: 650px) {
+      .form-section { width: 98vw; padding-right: 3vw; padding-left: 3vw;}
+      .form-grid { grid-template-columns: 1fr; }
+      .form-actions { grid-column: span 1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <header>
+      <div class="logo">Anemia</div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('predict_form') }}">Predict</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="predict-container">
+        <section class="form-section">
+          <h2>Enter Your Details</h2>
+          <form action="/predict" method="post">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select name="gender" id="gender" required>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="hemoglobin">Hemoglobin (7–16):</label>
+                <input type="number" step="any" name="hemoglobin" id="hemoglobin" required>
+              </div>
+              <div class="form-group">
+                <label for="mch">MCH (16–36):</label>
+                <input type="number" step="any" name="mch" id="mch" required>
+              </div>
+              <div class="form-group">
+                <label for="mchc">MCHC (28–34):</label>
+                <input type="number" step="any" name="mchc" id="mchc" required>
+              </div>
+              <div class="form-group">
+                <label for="mcv">MCV (70–100):</label>
+                <input type="number" step="any" name="mcv" id="mcv" required>
+              </div>
+              <div class="form-actions">
+                <input type="submit" value="Submit">
+              </div>
+            </div>
+          </form>
+          {% if prediction %}
+            <div class="result-section">
+              <h3>Result:</h3>
+              <p>{{ prediction }}</p>
+            </div>
+          {% endif %}
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

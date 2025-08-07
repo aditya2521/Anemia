@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anemia Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .hero-center {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .main-title {
+      font-size: 3.4rem;
+      font-weight: bold;
+      margin-bottom: 24px;
+      letter-spacing: 1.5px;
+      color: #fff;
+      text-shadow: 0 3px 14px rgba(30,0,40,0.18);
+      border-bottom: 2.5px solid #e82424;
+      padding-bottom: 12px;
+    }
+    .main-desc {
+      font-size: 1.5rem;
+      color: #fafafa;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <header>
+      <div class="logo">Anemia</div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('predict_form') }}">Predict</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+        <button class="check-btn" onclick="window.location.href='{{ url_for('predict_form') }}'">Check</button>
+      </nav>
+    </header>
+    <main>
+      <div class="hero-center">
+        <h1 class="main-title">Anemia Predictor: Your Health Guardian</h1>
+        <p class="main-desc">
+          Empowering you with early detection for better management and healthier living.
+        </p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

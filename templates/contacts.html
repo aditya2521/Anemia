@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="hero">
+    <header>
+      <h1 class="logo">Anemia</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="predict.html">Predict</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="content">
+      <h2>Contact Us</h2>
+      <p>If you have questions, suggestions, or concerns, feel free to reach out:</p>
+      <p><strong>Email:</strong> support@anemiapredictor.io</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+    </main>
+  </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .contact-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .contact-section {
+      background: rgba(22,16,63,0.82);
+      padding: 48px 38px;
+      border-radius: 18px;
+      color: #fff;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.13);
+    }
+    .contact-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+      color: #fafafa;
+    }
+    .contact-section p {
+      font-size: 1.19rem;
+      margin-bottom: 9px;
+      color: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <header>
+      <div class="logo">Anemia</div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('predict_form') }}">Predict</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="contact-container">
+        <section class="contact-section">
+          <h2>Contact Us</h2>
+          <p>Email: support@anemiapredictor.io</p>
+          <p>Phone: +91-98765-43210</p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

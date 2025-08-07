@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Anemia</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .about-container {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center; /* or use 'justify' if you want justified text */
+    }
+    .about-section {
+      background: rgba(22,16,63,0.80);
+      padding: 48px 32px;
+      border-radius: 20px;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.13);
+      max-width: 600px;
+    }
+    .about-section h2 {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      color: #fafafa;
+    }
+    .about-section p {
+      font-size: 1.19rem;
+      color: #fafafa;
+      text-align: justify;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <header>
+      <div class="logo">Anemia</div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('predict_form') }}">Predict</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="about-container">
+        <section class="about-section">
+          <h2>About Anemia</h2>
+          <p>Anemia is a condition marked by a shortage of red blood cells or hemoglobin, reducing oxygen flow in the body.</p>
+          <p><strong>Hemoglobin:</strong> Men: 13.2–16.6 g/dL, Women: 11.6–15 g/dL.</p>
+          <p><strong>MCV:</strong> Normal: 80–100 fL.</p>
+          <p><strong>MCHC:</strong> Normal: 33.4–35.5 g/dL.</p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
